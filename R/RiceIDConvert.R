@@ -28,11 +28,11 @@ RiceIDConvert <- function(myID,fromType,toType,drop){
   for (gene in myID) {
     if (gene %in% RiceID_selected[,1]) {
       ID_result_temp <- RiceID_selected[which(RiceID_selected == gene),]
-      rownames(ID_result_temp) <- paste(gene,seq(1,nrow(ID_result_temp)),sep = '_')
+      #rownames(ID_result_temp) <- paste(gene,seq(1,nrow(ID_result_temp)),sep = '_')
       colnames(ID_result_temp) <- c(fromType,toType)
     }else{
       ID_result_temp <- as.data.frame(t(data.frame(temp = c(gene,rep('No.ID',(length(toType)))))))
-      rownames(ID_result_temp) <- gene
+      # rownames(ID_result_temp) <- gene
       colnames(ID_result_temp) <- c(fromType,toType)
     }
     ID_result <- rbind(ID_result,ID_result_temp)
@@ -45,7 +45,7 @@ RiceIDConvert <- function(myID,fromType,toType,drop){
   if (length(myID) == 1 & nrow(ID_result) < 1) {
     print('--> No ID can be mapped....')
   }else{
-    return(ID_result)
+    return(unique(ID_result))
   }
   
 }
