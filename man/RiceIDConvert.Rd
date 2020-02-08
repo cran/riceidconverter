@@ -4,7 +4,7 @@
 \alias{RiceIDConvert}
 \title{Convert Biological ID from One to Another for Oryza Sativa}
 \usage{
-RiceIDConvert(myID, fromType, toType, drop)
+RiceIDConvert(myID, fromType, toType)
 }
 \arguments{
 \item{myID}{A vector of entrez  id}
@@ -12,8 +12,6 @@ RiceIDConvert(myID, fromType, toType, drop)
 \item{fromType}{Keytype of input  id}
 
 \item{toType}{Keytype of output  id}
-
-\item{drop}{A logical vector}
 }
 \value{
 Return a vector or a datafram
@@ -22,11 +20,10 @@ Return a vector or a datafram
 \code{RiceIDConverter} Convert One Biological ID to Another for Oryza Sativa, such As SYMBOL to TRANSCRIPTID.
 }
 \examples{
-convert_id <- RiceIDConvert('Os01g0100500','RAP',toType = 'MSU',FALSE)
+convert_id <- RiceIDConvert('Os01g0100500','RAP',toType = 'MSU')
 convert_id <- RiceIDConvert(myID = 'Os01g0100500',
                             fromType = 'RAP',
-                            toType = 'SYMBOL',
-                            drop = FALSE)
+                            toType = 'SYMBOL')
 }
 \author{
 Xiang LI <ynaulx@gmail.com>
