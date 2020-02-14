@@ -24,6 +24,6 @@ RiceIDConvert <- function(myID,fromType,toType){
   colnames(myid) <- fromType
   
   RiceID_selected <- dplyr::select(riceiddb,c(fromType,toType))
-  res <- merge(myid,RiceID_selected, by = fromType, all.x = T)
+  res <- unique(merge(myid,RiceID_selected, by = fromType, all.x = T))
   return(res)
 }
